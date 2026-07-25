@@ -8,20 +8,25 @@ import { BASE_URL } from "../utils/constants";
 const Login = () => {
   const [emailId, setEmailId] = useState("vijay@gmail.com");
   const [password, setPassword] = useState("Vijay@123");
+  const [error, setError] = useState("");
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const loginHandler = async () => {
-    const response = await axios.post(
-      BASE_URL + "/login",
-      {
-        emailId,
-        password,
-      },
-      { withCredentials: true },
-    );
-    dispatch(addUser(response.data));
-    navigate("/");
+    try {
+      const response = await axios.post(
+        BASE_URL + "/login",
+        {
+          emailId,
+          password,
+        },
+        { withCredentials: true },
+      );
+      dispatch(addUser(response.data));
+      navigate("/");
+    } catch (err) {
+      setError(err.response?.data || "Something went wrong");
+    }
   };
 
   return (
@@ -46,7 +51,7 @@ const Login = () => {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
               />
-
+              <p className="text-red-500">{error}</p>
               <button className="btn btn-neutral mt-4" onClick={loginHandler}>
                 Login
               </button>

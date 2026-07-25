@@ -3,7 +3,7 @@ import Header from "./Components/Header";
 import Footer from "./Components/Footer";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
-import { addUser } from "./utils/userSlice";
+import { addUser, removeUser } from "./utils/userSlice";
 import { useEffect } from "react";
 import { BASE_URL } from "./utils/constants";
 
@@ -20,8 +20,10 @@ const Body = () => {
       });
       dispatch(addUser(res.data));
     } catch (err) {
-      if (err.status == 401) navigate("/login");
-      console.error(err);
+      if (err.status == 401) {
+        dispatch(removeUser());
+        navigate("/login");
+      }
     }
   };
 
