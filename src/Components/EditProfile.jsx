@@ -84,13 +84,19 @@ const EditProfile = ({ user }) => {
                   />
 
                   <label className="label">Gender</label>
-                  <input
-                    type="text"
-                    className="input"
-                    name="gender"
+                  <select
                     value={info.gender}
+                    name="gender"
+                    className="select"
                     onChange={inputHandler}
-                  />
+                  >
+                    <option value="" disabled>
+                      Pick a gender
+                    </option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="other">Other</option>
+                  </select>
 
                   <label className="label">Bio</label>
                   <textarea
