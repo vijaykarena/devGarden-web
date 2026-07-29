@@ -13,8 +13,8 @@ const EditProfile = ({ user }) => {
     firstName: user?.firstName,
     lastName: user?.lastName,
     photoUrl: user?.photoUrl,
-    age: user?.age,
-    gender: user?.gender,
+    age: user?.age || "",
+    gender: user?.gender || "",
     bio: user?.bio,
   });
 
