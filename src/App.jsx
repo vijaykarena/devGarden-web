@@ -7,6 +7,7 @@ import Feed from "./pages/Feed";
 import Profile from "./pages/Profile";
 import Connections from "./pages/Connections";
 import Requests from "./pages/Requests";
+import Subscription from "./pages/Subscription";
 
 function App() {
   return (
@@ -18,7 +19,8 @@ function App() {
             <Route path="/login" element={<Login />} />
             <Route path="/profile" element={<Profile />} />
             <Route path="/connections" element={<Connections />} />
-              <Route path="/requests" element={<Requests />} />
+            <Route path="/requests" element={<Requests />} />
+            <Route path="/subscription" element={<Subscription />} />
           </Route>
         </Routes>
       </BrowserRouter>

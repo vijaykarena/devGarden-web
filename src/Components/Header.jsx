@@ -60,6 +60,9 @@ const Header = () => {
                   <Link to="/requests">Requests</Link>
                 </li>
                 <li>
+                  <Link to="/subscription">Subscription</Link>
+                </li>
+                <li>
                   <span onClick={logoutHandler}>Logout</span>
                 </li>
               </ul>
